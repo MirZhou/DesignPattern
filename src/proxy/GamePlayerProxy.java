@@ -3,8 +3,12 @@ package proxy;
 public class GamePlayerProxy implements IGamePlayer {
     private IGamePlayer gamePlayer = null;
 
-    public GamePlayerProxy(IGamePlayer _gamePlayer) {
-        this.gamePlayer = _gamePlayer;
+    public GamePlayerProxy(String _name) {
+        try {
+            this.gamePlayer = new GamePlayer(this, _name);
+        } catch (Exception ex) {
+            System.out.println("异常：" + ex.getMessage());
+        }
     }
 
     @Override

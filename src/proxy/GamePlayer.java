@@ -3,8 +3,12 @@ package proxy;
 public class GamePlayer implements IGamePlayer {
     private String name = "";
 
-    public GamePlayer(String name) {
-        this.name = name;
+    public GamePlayer(IGamePlayer _gamePlayer, String _name) throws Exception {
+        if (_gamePlayer == null) {
+            throw new Exception("不能创建真实角色！");
+        } else {
+            this.name = _name;
+        }
     }
 
     @Override
